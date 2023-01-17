@@ -76,6 +76,14 @@ object Deps {
         }
     }
 
+    object Logging {
+        object Napier {
+            private const val version = "2.6.1"
+            const val CORE = "io.github.aakira:napier:$version"
+            const val ANDROID = "io.github.aakira:napier-android-debug:$version"
+        }
+    }
+
     object Presentation {
 
         object Core {
@@ -136,7 +144,6 @@ object Deps {
     }
 
     object Util {
-        const val TIMBER = "com.jakewharton.timber:timber:5.0.1"
         const val DESUGAR = "com.android.tools:desugar_jdk_libs:2.0.0"
     }
 

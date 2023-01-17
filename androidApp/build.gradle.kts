@@ -100,6 +100,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared"))
     implementation(project(":library-android"))
     implementation(project(":library-kotlin"))
 
@@ -145,7 +146,7 @@ dependencies {
     implementation(Deps.IO.Retrofit.KOTLINX_SERIALIZATION_CONVERTER)
 
     // Util
-    implementation(Deps.Util.TIMBER)
+    implementation(Deps.Logging.Napier.ANDROID)
 
     // Unit Testing
     testImplementation(Deps.Testing.Kotest.RUNNER)

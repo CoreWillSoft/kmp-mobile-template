@@ -38,6 +38,8 @@ kotlin {
                 implementation(Deps.IO.KotlinxSerialization.JSON)
                 //Key-Value storage
                 implementation(Deps.Storage.Settings.CORE)
+                //Logger
+                implementation(Deps.Logging.Napier.CORE)
                 //Database
                 implementation(Deps.Storage.SqlDelight.RUNTIME)
                 // DI

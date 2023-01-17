@@ -1,5 +1,5 @@
 package io.template.app.common.logger
 
-import timber.log.Timber
+import io.github.aakira.napier.Napier
 
-typealias AppLogger = Timber
+typealias AppLogger = Napier
