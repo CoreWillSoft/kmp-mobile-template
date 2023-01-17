@@ -29,17 +29,17 @@ kotlin {
          */
         val commonMain by getting {
             dependencies {
-                //Coroutines
+                // Coroutines
                 implementation(Deps.Core.Coroutine.CORE)
-                //JSON
+                // JSON
                 implementation(Deps.IO.KotlinxSerialization.JSON)
-                //Key-Value storage
+                // Key-Value storage
                 implementation(Deps.Storage.Settings.CORE)
-                //Logger
+                // Logger
                 implementation(Deps.Logging.Napier.CORE)
-                //Database
+                // Database
                 implementation(Deps.Storage.SqlDelight.RUNTIME)
-                //Date and time
+                // Date and time
                 implementation(Deps.Util.DATE_TIME)
                 // DI
                 api(Deps.Di.CORE)
@@ -49,7 +49,7 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-                //Database
+                // Database
                 implementation(Deps.Storage.SqlDelight.DRIVER_ANDROID)
             }
         }
@@ -63,7 +63,7 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
-                //Database
+                // Database
                 implementation(Deps.Storage.SqlDelight.DRIVER_NATIVE)
             }
         }
@@ -73,6 +73,7 @@ kotlin {
 android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     compileSdk = AppCoordinates.Sdk.COMPILE_SDK_VERSION
+    namespace = "io.template.app.shared"
 
     defaultConfig {
         minSdk = AppCoordinates.Sdk.MIN_SDK_VERSION
