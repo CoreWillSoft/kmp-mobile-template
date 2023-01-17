@@ -1,4 +1,4 @@
-package com.example.kmmapp
+package io.template.app.shared
 
 class AndroidPlatform : Platform {
     override val name: String = "Android ${android.os.Build.VERSION.SDK_INT}"

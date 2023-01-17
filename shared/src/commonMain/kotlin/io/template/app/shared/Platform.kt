@@ -1,4 +1,4 @@
-package com.example.kmmapp
+package io.template.app.shared
 
 interface Platform {
     val name: String

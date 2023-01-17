@@ -51,7 +51,8 @@ kotlin {
 android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     compileSdk = AppCoordinates.Sdk.COMPILE_SDK_VERSION
-    namespace = "io.template.app.shared"
+    namespace = "" +
+            ""
 
     defaultConfig {
         minSdk = AppCoordinates.Sdk.MIN_SDK_VERSION

@@ -1,4 +1,4 @@
-package com.example.kmmapp
+package io.template.app.shared
 
 import platform.UIKit.UIDevice
 
