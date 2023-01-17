@@ -146,7 +146,7 @@ dependencies {
     implementation(Deps.IO.Retrofit.KOTLINX_SERIALIZATION_CONVERTER)
 
     // Util
-    implementation(Deps.Logging.Napier.ANDROID)
+    implementation(Deps.Logging.TIMBER)
 
     // Unit Testing
     testImplementation(Deps.Testing.Kotest.RUNNER)

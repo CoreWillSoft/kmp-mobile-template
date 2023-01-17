@@ -77,6 +77,7 @@ object Deps {
     }
 
     object Logging {
+        const val TIMBER = "com.jakewharton.timber:timber:5.0.1"
         object Napier {
             private const val version = "2.6.1"
             const val CORE = "io.github.aakira:napier:$version"
