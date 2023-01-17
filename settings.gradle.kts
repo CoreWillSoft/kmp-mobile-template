@@ -1,4 +1,4 @@
-rootProject.name = ("oss-configurator")
+rootProject.name = ("template-app")
 
 include(
     ":androidApp",
