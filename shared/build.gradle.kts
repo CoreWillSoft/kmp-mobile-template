@@ -7,53 +7,26 @@ plugins {
 
 kotlin {
     android()
+
     listOf(
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "OssConfigurator"
+            baseName = "shared"
         }
     }
 
     sourceSets {
-        /*
-        Source sets structure
-        common
-         ├─ android
-         ├─ ios
-             ├─ iosX64
-             ├─ iosArm64
-             ├─ iosSimulatorArm64
-         */
-        val commonMain by getting {
+        val commonMain by getting
+        val commonTest by getting {
             dependencies {
-                // Coroutines
-                implementation(Deps.Core.Coroutine.CORE)
-                // JSON
-                implementation(Deps.IO.KotlinxSerialization.JSON)
-                // Key-Value storage
-                implementation(Deps.Storage.Settings.CORE)
-                // Logger
-                implementation(Deps.Logging.Napier.CORE)
-                // Database
-                implementation(Deps.Storage.SqlDelight.RUNTIME)
-                // Date and time
-                implementation(Deps.Util.DATE_TIME)
-                // DI
-                api(Deps.Di.CORE)
-                api(Deps.Di.CORE_TEST)
+                implementation(kotlin("test"))
             }
         }
-
-        val androidMain by getting {
-            dependencies {
-                // Database
-                implementation(Deps.Storage.SqlDelight.DRIVER_ANDROID)
-            }
-        }
-
+        val androidMain by getting
+        val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -62,10 +35,15 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
-            dependencies {
-                // Database
-                implementation(Deps.Storage.SqlDelight.DRIVER_NATIVE)
-            }
+        }
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        val iosSimulatorArm64Test by getting
+        val iosTest by creating {
+            dependsOn(commonTest)
+            iosX64Test.dependsOn(this)
+            iosArm64Test.dependsOn(this)
+            iosSimulatorArm64Test.dependsOn(this)
         }
     }
 }
