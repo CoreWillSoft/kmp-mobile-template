@@ -145,6 +145,7 @@ object Deps {
 
     object Util {
         const val DESUGAR = "com.android.tools:desugar_jdk_libs:2.0.0"
+        const val DATE_TIME = "org.jetbrains.kotlinx:kotlinx-datetime:0.4.0"
     }
 
     object Testing {

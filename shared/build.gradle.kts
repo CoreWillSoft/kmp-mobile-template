@@ -42,6 +42,8 @@ kotlin {
                 implementation(Deps.Logging.Napier.CORE)
                 //Database
                 implementation(Deps.Storage.SqlDelight.RUNTIME)
+                //Date and time
+                implementation(Deps.Util.DATE_TIME)
                 // DI
                 api(Deps.Di.CORE)
                 api(Deps.Di.CORE_TEST)
