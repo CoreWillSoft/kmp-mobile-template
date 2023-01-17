@@ -11,6 +11,7 @@ buildscript {
         classpath(kotlin("gradle-plugin", version = BuildPluginsVersions.KOTLIN))
         classpath(kotlin("serialization", version = BuildPluginsVersions.KOTLIN))
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Deps.Presentation.Navigation.VERSION}")
+        classpath("com.squareup.sqldelight:gradle-plugin:${Deps.Storage.SqlDelight.VERSION}")
     }
 }
 

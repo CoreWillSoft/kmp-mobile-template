@@ -1,7 +1,8 @@
-rootProject.name = ("kotlin-android-template")
+rootProject.name = ("oss-configurator")
 
 include(
-    "app",
+    ":androidApp",
+    ":shared",
     "library-android",
-    "library-kotlin"
+    "library-kotlin",
 )

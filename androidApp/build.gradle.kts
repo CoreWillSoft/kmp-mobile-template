@@ -92,6 +92,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
     lint {
         warningsAsErrors = true
         abortOnError = true

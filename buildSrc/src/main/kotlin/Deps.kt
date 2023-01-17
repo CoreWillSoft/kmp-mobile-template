@@ -52,6 +52,28 @@ object Deps {
             const val CORE = "com.squareup.okhttp3:okhttp:$version"
             const val MOCK = "com.squareup.okhttp3:mockwebserver:$version"
         }
+
+        object Ktor {
+            private const val version = "2.2.2"
+            const val CORE = "io.ktor:ktor-client-core:$version"
+            const val LOGGING = "io.ktor:ktor-client-logging:$version"
+            const val OKHTTP = "io.ktor:ktor-client-okhttp:$version"
+            const val DARWIN = "io.ktor:ktor-client-darwin:$version"
+        }
+    }
+
+    object Storage {
+        object Settings {
+            private const val version = "1.0.0"
+            const val CORE = "com.russhwolf:multiplatform-settings:$version"
+        }
+
+        object SqlDelight {
+            const val VERSION = "1.5.4"
+            const val RUNTIME = "com.squareup.sqldelight:runtime:$VERSION"
+            const val DRIVER_ANDROID = "com.squareup.sqldelight:android-driver:$VERSION"
+            const val DRIVER_NATIVE = "com.squareup.sqldelight:native-driver:$VERSION"
+        }
     }
 
     object Presentation {
@@ -115,6 +137,7 @@ object Deps {
 
     object Util {
         const val TIMBER = "com.jakewharton.timber:timber:5.0.1"
+        const val DESUGAR = "com.android.tools:desugar_jdk_libs:2.0.0"
     }
 
     object Testing {
