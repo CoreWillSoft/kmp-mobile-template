@@ -29,9 +29,6 @@ kotlin {
          */
         val commonMain by getting {
             dependencies {
-                //Network
-                implementation(Deps.IO.Ktor.CORE)
-                implementation(Deps.IO.Ktor.LOGGING)
                 //Coroutines
                 implementation(Deps.Core.Coroutine.CORE)
                 //JSON
@@ -42,6 +39,8 @@ kotlin {
                 implementation(Deps.Logging.Napier.CORE)
                 //Database
                 implementation(Deps.Storage.SqlDelight.RUNTIME)
+                //Date and time
+                implementation(Deps.Util.DATE_TIME)
                 // DI
                 api(Deps.Di.CORE)
                 api(Deps.Di.CORE_TEST)
@@ -50,8 +49,6 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-                //Network
-                implementation(Deps.IO.Ktor.OKHTTP)
                 //Database
                 implementation(Deps.Storage.SqlDelight.DRIVER_ANDROID)
             }
@@ -66,8 +63,6 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
-                //Network
-                implementation(Deps.IO.Ktor.DARWIN)
                 //Database
                 implementation(Deps.Storage.SqlDelight.DRIVER_NATIVE)
             }
