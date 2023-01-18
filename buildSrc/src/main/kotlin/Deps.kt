@@ -63,9 +63,9 @@ object Deps {
     }
 
     object Storage {
-        object Settings {
-            private const val version = "1.0.0"
-            const val CORE = "com.russhwolf:multiplatform-settings:$version"
+        object SecureSettings {
+            private const val version = "1.10.0"
+            const val CORE = "com.liftric:kvault:$version"
         }
 
         object SqlDelight {

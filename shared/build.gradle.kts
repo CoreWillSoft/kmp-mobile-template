@@ -29,6 +29,8 @@ kotlin {
                 implementation(Deps.IO.KotlinxSerialization.JSON)
                 // Database
                 implementation(Deps.Storage.SqlDelight.RUNTIME)
+                // Key-Value
+                implementation(Deps.Storage.SecureSettings.CORE)
                 // DateTime
                 implementation(Deps.Util.DATE_TIME)
                 // DI
