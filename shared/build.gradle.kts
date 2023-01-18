@@ -27,6 +27,8 @@ kotlin {
                 implementation(Deps.Logging.Napier.CORE)
                 // JSON
                 implementation(Deps.IO.KotlinxSerialization.JSON)
+                // Database
+                implementation(Deps.Storage.SqlDelight.RUNTIME)
                 // Key-Value storage
                 implementation(Deps.Storage.Settings.CORE)
                 // DateTime
@@ -36,7 +38,11 @@ kotlin {
             }
         }
         val commonTest by getting
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation(Deps.Storage.SqlDelight.DRIVER_ANDROID)
+            }
+        }
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -45,6 +51,9 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation(Deps.Storage.SqlDelight.DRIVER_NATIVE)
+            }
         }
         val iosX64Test by getting
         val iosArm64Test by getting
@@ -61,7 +70,7 @@ kotlin {
 android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     compileSdk = AppCoordinates.Sdk.COMPILE_SDK_VERSION
-    namespace = "io.template.app.shared"
+    namespace = "${AppCoordinates.APP_ID}.shared"
 
     defaultConfig {
         minSdk = AppCoordinates.Sdk.MIN_SDK_VERSION
@@ -75,5 +84,11 @@ android {
     }
     dependencies {
         coreLibraryDesugaring(Deps.Util.DESUGAR)
+    }
+}
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "${AppCoordinates.APP_ID}.shared.cache"
     }
 }
