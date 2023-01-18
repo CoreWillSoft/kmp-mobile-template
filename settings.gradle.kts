@@ -12,7 +12,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = ("template-app")
+rootProject.name = ("kmp-mobile-template")
 
 include(
     ":androidApp",
