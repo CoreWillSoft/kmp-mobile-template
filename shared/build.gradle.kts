@@ -19,14 +19,24 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting
-        val commonTest by getting {
+        val commonMain by getting {
             dependencies {
-                implementation(kotlin("test"))
+                // Coroutines
+                implementation(Deps.Core.Coroutine.CORE)
+                // Logger
+                implementation(Deps.Logging.Napier.CORE)
+                // JSON
+                implementation(Deps.IO.KotlinxSerialization.JSON)
+                // Key-Value storage
+                implementation(Deps.Storage.Settings.CORE)
+                // DateTime
+                implementation(Deps.Util.DATE_TIME)
+                // DI
+                api(Deps.Di.CORE)
             }
         }
+        val commonTest by getting
         val androidMain by getting
-        val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -51,8 +61,7 @@ kotlin {
 android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     compileSdk = AppCoordinates.Sdk.COMPILE_SDK_VERSION
-    namespace = "" +
-            ""
+    namespace = "io.template.app.shared"
 
     defaultConfig {
         minSdk = AppCoordinates.Sdk.MIN_SDK_VERSION
