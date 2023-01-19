@@ -41,18 +41,6 @@ object Deps {
             const val JSON = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
         }
 
-        object Retrofit {
-            const val CORE = "com.squareup.retrofit2:retrofit:2.9.0"
-            const val KOTLINX_SERIALIZATION_CONVERTER =
-                "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
-        }
-
-        object OkHttp {
-            private const val version = "4.10.0"
-            const val CORE = "com.squareup.okhttp3:okhttp:$version"
-            const val MOCK = "com.squareup.okhttp3:mockwebserver:$version"
-        }
-
         object Ktor {
             private const val version = "2.2.2"
             const val CORE = "io.ktor:ktor-client-core:$version"
@@ -158,6 +146,11 @@ object Deps {
             const val FIXTURE = "com.appmattus.fixture:fixture:1.2.0"
         }
 
+        object Kotlin {
+            const val JUNIT = "test-junit"
+            const val COMMON = "test-common"
+            const val COMMON_ANNOTATION = "test-annotations-common"
+        }
         object Kotest {
             private const val version = "5.5.4"
             const val RUNNER = "io.kotest:kotest-runner-junit5:$version"

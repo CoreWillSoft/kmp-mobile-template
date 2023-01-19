@@ -17,6 +17,5 @@ rootProject.name = ("kmp-mobile-template")
 include(
     ":androidApp",
     ":shared",
-    "library-android",
-    "library-kotlin",
+    "library-android"
 )

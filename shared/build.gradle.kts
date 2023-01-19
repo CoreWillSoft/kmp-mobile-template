@@ -37,10 +37,21 @@ kotlin {
                 api(Deps.Di.CORE)
             }
         }
-        val commonTest by getting
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin(Deps.Testing.Kotlin.COMMON))
+                implementation(kotlin(Deps.Testing.Kotlin.COMMON_ANNOTATION))
+                implementation(kotlin(Deps.Testing.Kotlin.JUNIT))
+            }
+        }
         val androidMain by getting {
             dependencies {
                 implementation(Deps.Storage.SqlDelight.DRIVER_ANDROID)
+            }
+        }
+        val androidTest by getting {
+            dependencies {
+                implementation(Deps.Testing.Common.JUNIT)
             }
         }
         val iosX64Main by getting
