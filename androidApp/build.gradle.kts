@@ -10,6 +10,7 @@ plugins {
 
 android {
     compileSdk = AppCoordinates.Sdk.COMPILE_SDK_VERSION
+    namespace = AppCoordinates.APP_ID
 
     defaultConfig {
         minSdk = AppCoordinates.Sdk.MIN_SDK_VERSION

@@ -1,25 +1,24 @@
-# kotlin-android-template 🤖
+# kotlin-multiplatform-template 🤖
 
-[![Use this template](https://img.shields.io/badge/from-kotlin--android--template-brightgreen?logo=dropbox)](https://github.com/corewillsoft/kotlin-android-template/generate) ![Pre Merge Checks](https://github.com/corewillsoft/kotlin-android-template/workflows/Pre%20Merge%20Checks/badge.svg)  ![License](https://img.shields.io/github/license/cortinico/kotlin-android-template.svg) ![Language](https://img.shields.io/github/languages/top/cortinico/kotlin-android-template?color=blue&logo=kotlin)
-
-A simple Github template that lets you create an **Android/Kotlin** project and be up and running in a **few seconds**. 
+A simple Github template that lets you create an **Kotlin Multiplatform** project and be up and running in a **few seconds**. 
 
 This template is focused on delivering a project with **static analysis** and **continuous integration** already in place.
 
 ## How to use 👣
 
-Just click on [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/corewillsoft/kotlin-android-template/generate) button to create a new repo starting from this template.
+Just click on [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/CoreWillSoft/kmp-mobile-template/generate) button to create a new repo starting from this template.
 
 Once created don't forget to update the:
 - [App ID](buildSrc/src/main/java/Coordinates.kt)
-- AndroidManifest ([here](app/src/main/AndroidManifest.xml) and [here](library-android/src/main/AndroidManifest.xml))
-- Package of the source files
+- Rename packages in shared module([here](shared/src/androidMain/kotlin) and [here](shared/src/commonMain/kotlin) and [here](shared/src/iosMain/kotlin))
+- Package in androidApp ([here](androidApp/src/main) based on [App ID](buildSrc/src/main/java/Coordinates.kt)]
 
 ## Features 🎨
 
-- **100% Kotlin-only template**.
 - Husky git pre-hook. To enable run once `npm install`. 
 - 3 Sample modules (Android app, Android library, Kotlin library).
+- Preconfigured shared module with base configuration and database. 
+- Empty ios app with shared dependencies from common module
 - Sample Espresso, Instrumentation & JUnit tests.
 - 100% Gradle Kotlin DSL setup.
 - Dependency versions managed via `buildSrc`.
@@ -108,8 +107,3 @@ The template is setup to be **ready to publish** a library/artifact on a Maven R
 Feel free to open a issue or submit a pull request for any bugs/improvements.
 
 ## Code of Conduct
-
-### 3rd-party libraries
-
-- favor libs with KMP support
-- favor language/platform de-facto standard, e.g.: `java.time`
