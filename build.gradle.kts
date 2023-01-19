@@ -47,7 +47,6 @@ subprojects {
         }
     }
     tasks.withType<Test>().all {
-        useJUnitPlatform()
         systemProperty("gradle.build.dir", buildDir) // required by kotest
     }
 
@@ -68,7 +67,7 @@ subprojects {
             reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
         }
         filter {
-            exclude("**/generated/**")
+            exclude { projectDir.toURI().relativize(it.file.toURI()).path.contains("/generated/") }
             include("**/kotlin/**")
         }
     }

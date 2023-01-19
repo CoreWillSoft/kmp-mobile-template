@@ -7,7 +7,7 @@ object BuildPluginsVersions {
     const val DETEKT = "1.19.0"
 
     object KTLINT {
-        const val PLUGIN = "11.0.0"
+        const val PLUGIN = "10.2.0"
         const val CONFIG = "0.40.0"
     }
 
