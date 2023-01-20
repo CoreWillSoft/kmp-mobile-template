@@ -1,9 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "postinstall": "npm install husky"
+    "postinstall": "npm install husky",
+    "prepare": "husky install"
   },
-  "dependencies": {
-    "husky": "^6.0.0"
+  "devDependencies": {
+    "husky": "^8.0.3"
   }
 }
