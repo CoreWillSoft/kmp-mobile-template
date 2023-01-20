@@ -2,20 +2,18 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
-    repositories {
-        google()
-        gradlePluginPortal()
-    }
     dependencies {
-        classpath("com.android.tools.build:gradle:${BuildPluginsVersions.AGP}")
-        classpath(kotlin("gradle-plugin", version = BuildPluginsVersions.KOTLIN))
-        classpath(kotlin("serialization", version = BuildPluginsVersions.KOTLIN))
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Deps.Presentation.Navigation.VERSION}")
         classpath("com.squareup.sqldelight:gradle-plugin:${Deps.Storage.SqlDelight.VERSION}")
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Deps.Presentation.Navigation.VERSION}")
     }
 }
 
 plugins {
+    id("com.android.application") version BuildPluginsVersions.AGP apply false
+    id("com.android.library") version BuildPluginsVersions.AGP apply false
+    kotlin("android") version BuildPluginsVersions.KOTLIN apply false
+    kotlin("multiplatform") version BuildPluginsVersions.KOTLIN apply false
+    kotlin("plugin.serialization") version BuildPluginsVersions.KOTLIN
     id("io.gitlab.arturbosch.detekt") version BuildPluginsVersions.DETEKT
     id("org.jlleitschuh.gradle.ktlint") version BuildPluginsVersions.KTLINT.PLUGIN
     id("com.github.ben-manes.versions") version BuildPluginsVersions.DEPENDENCY_UPDATES
@@ -49,7 +47,6 @@ subprojects {
         }
     }
     tasks.withType<Test>().all {
-        useJUnitPlatform()
         systemProperty("gradle.build.dir", buildDir) // required by kotest
     }
 
@@ -70,7 +67,7 @@ subprojects {
             reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
         }
         filter {
-            exclude("**/generated/**")
+            exclude { projectDir.toURI().relativize(it.file.toURI()).path.contains("/generated/") }
             include("**/kotlin/**")
         }
     }

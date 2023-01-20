@@ -1,5 +1,6 @@
 package io.template.library.android
 
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -12,6 +13,7 @@ import com.ncorti.kotlin.template.library.android.R
 private const val CHANNEL_ID = "default"
 private const val NOTIFICATION_ID = 42
 
+@SuppressLint("ObsoleteSdkInt")
 class NotificationUtil(context: Context) {
 
     init {

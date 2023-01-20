@@ -7,58 +7,53 @@ plugins {
 
 kotlin {
     android()
+
     listOf(
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "OssConfigurator"
+            baseName = "shared"
         }
     }
 
     sourceSets {
-        /*
-        Source sets structure
-        common
-         ├─ android
-         ├─ ios
-             ├─ iosX64
-             ├─ iosArm64
-             ├─ iosSimulatorArm64
-         */
         val commonMain by getting {
             dependencies {
-                //Network
-                implementation(Deps.IO.Ktor.CORE)
-                implementation(Deps.IO.Ktor.LOGGING)
-                //Coroutines
+                // Coroutines
                 implementation(Deps.Core.Coroutine.CORE)
-                //JSON
-                implementation(Deps.IO.KotlinxSerialization.JSON)
-                //Key-Value storage
-                implementation(Deps.Storage.Settings.CORE)
-                //Logger
+                // Logger
                 implementation(Deps.Logging.Napier.CORE)
-                //Database
+                // JSON
+                implementation(Deps.IO.KotlinxSerialization.JSON)
+                // Database
                 implementation(Deps.Storage.SqlDelight.RUNTIME)
-                //Date and time
+                // Key-Value
+                implementation(Deps.Storage.SecureSettings.CORE)
+                // DateTime
                 implementation(Deps.Util.DATE_TIME)
                 // DI
                 api(Deps.Di.CORE)
-                api(Deps.Di.CORE_TEST)
             }
         }
-
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin(Deps.Testing.Kotlin.COMMON))
+                implementation(kotlin(Deps.Testing.Kotlin.COMMON_ANNOTATION))
+                implementation(kotlin(Deps.Testing.Kotlin.JUNIT))
+            }
+        }
         val androidMain by getting {
             dependencies {
-                //Network
-                implementation(Deps.IO.Ktor.OKHTTP)
-                //Database
                 implementation(Deps.Storage.SqlDelight.DRIVER_ANDROID)
             }
         }
-
+        val androidTest by getting {
+            dependencies {
+                implementation(Deps.Testing.Common.JUNIT)
+            }
+        }
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -68,11 +63,17 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
-                //Network
-                implementation(Deps.IO.Ktor.DARWIN)
-                //Database
                 implementation(Deps.Storage.SqlDelight.DRIVER_NATIVE)
             }
+        }
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        val iosSimulatorArm64Test by getting
+        val iosTest by creating {
+            dependsOn(commonTest)
+            iosX64Test.dependsOn(this)
+            iosArm64Test.dependsOn(this)
+            iosSimulatorArm64Test.dependsOn(this)
         }
     }
 }
@@ -80,6 +81,7 @@ kotlin {
 android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     compileSdk = AppCoordinates.Sdk.COMPILE_SDK_VERSION
+    namespace = "${AppCoordinates.APP_ID}.shared"
 
     defaultConfig {
         minSdk = AppCoordinates.Sdk.MIN_SDK_VERSION
@@ -93,5 +95,11 @@ android {
     }
     dependencies {
         coreLibraryDesugaring(Deps.Util.DESUGAR)
+    }
+}
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "${AppCoordinates.APP_ID}.shared.cache"
     }
 }

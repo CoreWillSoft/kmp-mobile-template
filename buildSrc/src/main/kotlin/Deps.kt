@@ -1,13 +1,13 @@
 object BuildPluginsVersions {
 
-    const val AGP = "7.2.1"
+    const val AGP = "7.4.0"
     const val KOTLIN = "1.7.20"
 
     const val DOKKA = "1.7.20"
     const val DETEKT = "1.19.0"
 
     object KTLINT {
-        const val PLUGIN = "11.0.0"
+        const val PLUGIN = "10.2.0"
         const val CONFIG = "0.40.0"
     }
 
@@ -41,18 +41,6 @@ object Deps {
             const val JSON = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
         }
 
-        object Retrofit {
-            const val CORE = "com.squareup.retrofit2:retrofit:2.9.0"
-            const val KOTLINX_SERIALIZATION_CONVERTER =
-                "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
-        }
-
-        object OkHttp {
-            private const val version = "4.10.0"
-            const val CORE = "com.squareup.okhttp3:okhttp:$version"
-            const val MOCK = "com.squareup.okhttp3:mockwebserver:$version"
-        }
-
         object Ktor {
             private const val version = "2.2.2"
             const val CORE = "io.ktor:ktor-client-core:$version"
@@ -63,9 +51,9 @@ object Deps {
     }
 
     object Storage {
-        object Settings {
-            private const val version = "1.0.0"
-            const val CORE = "com.russhwolf:multiplatform-settings:$version"
+        object SecureSettings {
+            private const val version = "1.10.0"
+            const val CORE = "com.liftric:kvault:$version"
         }
 
         object SqlDelight {
@@ -77,6 +65,7 @@ object Deps {
     }
 
     object Logging {
+        const val TIMBER = "com.jakewharton.timber:timber:5.0.1"
         object Napier {
             private const val version = "2.6.1"
             const val CORE = "io.github.aakira:napier:$version"
@@ -157,6 +146,11 @@ object Deps {
             const val FIXTURE = "com.appmattus.fixture:fixture:1.2.0"
         }
 
+        object Kotlin {
+            const val JUNIT = "test-junit"
+            const val COMMON = "test-common"
+            const val COMMON_ANNOTATION = "test-annotations-common"
+        }
         object Kotest {
             private const val version = "5.5.4"
             const val RUNNER = "io.kotest:kotest-runner-junit5:$version"

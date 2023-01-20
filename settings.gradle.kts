@@ -1,8 +1,21 @@
-rootProject.name = ("template-app")
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = ("kmp-mobile-template")
 
 include(
     ":androidApp",
     ":shared",
-    "library-android",
-    "library-kotlin",
+    "library-android"
 )

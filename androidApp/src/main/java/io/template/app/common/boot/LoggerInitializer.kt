@@ -1,10 +1,9 @@
 package io.template.app.common.boot
 
-import io.github.aakira.napier.DebugAntilog
-import io.github.aakira.napier.Napier
+import timber.log.Timber
 
 class LoggerInitializer(enableLogger: Boolean) {
     init {
-        if (enableLogger) Napier.base(DebugAntilog())
+        if (enableLogger) Timber.plant(Timber.DebugTree())
     }
 }
