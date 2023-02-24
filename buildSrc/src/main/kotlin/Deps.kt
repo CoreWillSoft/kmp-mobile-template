@@ -1,7 +1,7 @@
 object BuildPluginsVersions {
 
-    const val AGP = "7.4.0"
-    const val KOTLIN = "1.7.20"
+    const val AGP = "7.4.1"
+    const val KOTLIN = "1.8.10"
 
     const val DOKKA = "1.7.20"
     const val DETEKT = "1.19.0"
@@ -51,18 +51,29 @@ object Deps {
     }
 
     object Storage {
+
         object SecureSettings {
             private const val version = "1.10.0"
             const val CORE = "com.liftric:kvault:$version"
         }
 
+        object Settings {
+            private const val version = "1.0.0"
+            const val CORE_NO_ARG = "com.russhwolf:multiplatform-settings-no-arg:$version"
+            const val COROUTINES = "com.russhwolf:multiplatform-settings-coroutines:$version"
+            const val DATA_STORE = "com.russhwolf:multiplatform-settings-datastore:$version"
+            const val DATA_STORE_ANDROID = "androidx.datastore:datastore-preferences:$version"
+        }
+
         object SqlDelight {
-            const val VERSION = "1.5.4"
+            const val VERSION = "1.5.5"
             const val RUNTIME = "com.squareup.sqldelight:runtime:$VERSION"
             const val DRIVER_ANDROID = "com.squareup.sqldelight:android-driver:$VERSION"
             const val DRIVER_NATIVE = "com.squareup.sqldelight:native-driver:$VERSION"
+            const val COROUTINES = "com.squareup.sqldelight:coroutines-extensions:$VERSION"
         }
     }
+
 
     object Logging {
         const val TIMBER = "com.jakewharton.timber:timber:5.0.1"
@@ -79,6 +90,28 @@ object Deps {
             const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:1.8.0"
             const val ANDROIDX_APPCOMPAT = "androidx.appcompat:appcompat:1.5.1"
             const val ANDROID_MATERIAL = "com.google.android.material:material:1.7.0"
+        }
+
+        object Compose {
+            private const val version = "1.4.0-alpha04"
+            const val COMPILER = "1.4.3"
+
+            const val ACTIVITY = "androidx.activity:activity-compose:1.6.1"
+            const val UI = "androidx.compose.ui:ui:$version"
+            const val TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview:$version"
+            const val MATERIAL_3 = "androidx.compose.material3:material3:1.1.0-alpha04"
+            const val MATERIAL = "androidx.compose.material:material:1.3.1"
+
+            object Accompanist {
+                private const val version = "0.29.1-alpha"
+                const val SYSTEM_UI_CONTROLLER = "com.google.accompanist:accompanist-systemuicontroller:$version"
+            }
+
+            object Testing {
+                const val UI_JUNIT = "androidx.compose.ui:ui-test-junit4:$version"
+                const val TOOLING = "androidx.compose.ui:ui-tooling:$version"
+                const val MANIFEST = "androidx.compose.ui:ui-test-manifest:$version"
+            }
         }
 
         object Lifecycle {
@@ -140,8 +173,9 @@ object Deps {
     object Testing {
         object Common {
             const val JUNIT = "junit:junit:4.13.2"
-            private const val mockk_version = "1.13.2"
+            private const val mockk_version = "1.13.4"
             const val MOCKK = "io.mockk:mockk:$mockk_version"
+            const val MOCKK_COMMON = "io.mockk:mockk-common:1.8.13.kotlin13"
             const val MOCKK_ANDROID = "io.mockk:mockk-android:$mockk_version"
             const val FIXTURE = "com.appmattus.fixture:fixture:1.2.0"
         }

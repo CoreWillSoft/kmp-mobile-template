@@ -42,6 +42,9 @@ kotlin {
                 implementation(kotlin(Deps.Testing.Kotlin.COMMON))
                 implementation(kotlin(Deps.Testing.Kotlin.COMMON_ANNOTATION))
                 implementation(kotlin(Deps.Testing.Kotlin.JUNIT))
+                implementation(Deps.Core.Coroutine.CORE)
+                implementation(Deps.Testing.Common.MOCKK_COMMON)
+                implementation(Deps.Testing.Common.MOCKK)
             }
         }
         val androidMain by getting {
@@ -49,9 +52,10 @@ kotlin {
                 implementation(Deps.Storage.SqlDelight.DRIVER_ANDROID)
             }
         }
-        val androidTest by getting {
+        val androidUnitTest by getting {
             dependencies {
                 implementation(Deps.Testing.Common.JUNIT)
+                implementation(Deps.Testing.Instrumentation.ROBOLECTRIC)
             }
         }
         val iosX64Main by getting
